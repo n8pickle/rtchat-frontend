@@ -1,25 +1,25 @@
-import logo from './logo.svg';
+import { LoginPageContainer } from './area/login/LoginPageContainer';
 import './App.css';
+import { withStyles} from '@material-ui/core/styles';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-function App() {
+function AppComponent({classes}) {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path='/' />
+          <Route path='/signin' component={LoginPageContainer} />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
 
-export default App;
+const styles = {
+  background: {
+    backgroundSize: 'fit'
+  }
+}
+
+export const App = withStyles(styles)(AppComponent);
