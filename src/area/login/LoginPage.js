@@ -1,7 +1,7 @@
 import { Button, Paper, TextField, Typography } from "@material-ui/core"
 import {withStyles} from '@material-ui/core/styles';
 
-const LoginPageComponent = ({classes, signin, signinvalue, setsignin}) => {
+const LoginPageComponent = ({classes, signin, signinvalue, setsignin, setredirect}) => {
 	return (
 		<Paper className={classes.paper}>
 			<form>
@@ -9,7 +9,7 @@ const LoginPageComponent = ({classes, signin, signinvalue, setsignin}) => {
 				<div>
 					<TextField 
 						required id="standard-required" 
-						label="Login" 
+						label="Username" 
 						onChange={(e) =>{
 								let value = {...signinvalue}
 								value = {...signinvalue, UserName: e.target.value};
@@ -36,7 +36,7 @@ const LoginPageComponent = ({classes, signin, signinvalue, setsignin}) => {
 					<Button variant="contained" color="primary" className={classes.buttonMargin}>
 						Sign Up
 					</Button>
-					<Button variant="contained" color="primary" className={classes.buttonMargin} onClick={(e) => signin(signinvalue) }>
+					<Button variant="contained" color="primary" className={classes.buttonMargin} onClick={(e) => signin(signinvalue, setredirect) }>
 						Log In
 					</Button>
 				</div>

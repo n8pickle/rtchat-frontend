@@ -1,12 +1,17 @@
 import { LoginPageContainer } from './area/login/LoginPageContainer';
 import './App.css';
 import { withStyles} from '@material-ui/core/styles';
-import { Paper } from '@material-ui/core';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 function AppComponent({classes}) {
   return (
     <div className="App">
-      <LoginPageContainer></LoginPageContainer>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path='/' />
+          <Route path='/signin' component={LoginPageContainer} />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
